@@ -18,8 +18,8 @@ def fake_decode_token(token):
 
 
 async def get_current_user(response: Response, token: str = Depends(oauth2_scheme)):
-    print(security)
     security = Security.get_or_none(token=token)
+    print(security)
     # if not user:
     #     raise HTTPException(status_code=HTTPStatus.UNAUTHORIZED, detail="Unauthorized")
 
@@ -28,6 +28,7 @@ async def get_current_user(response: Response, token: str = Depends(oauth2_schem
 
 @router.get("/users/me")
 async def read_users_me(current_user: User = Depends(get_current_user)):
+    print(current_user)
     return current_user
 
 
