@@ -1,7 +1,7 @@
 from fastapi import Body, APIRouter, status, Response, Query, Depends
 from typing_extensions import Annotated
-from models import User, Security
-import http
+from db.models import User, Security
+import http, time
 
 # using python's in-built http code as fastapi intellisense not working
 HTTPStatus = http.HTTPStatus
@@ -21,7 +21,6 @@ async def root():
 
 @router.get("/users")
 async def get_users():
-
     return [
         {"name": f"{user.first_name} {user.last_name}", "email": user.email}
         for user in User.select()

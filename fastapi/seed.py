@@ -1,4 +1,4 @@
-from models import User, Product, Category
+from fastapi.db.models import User, Product, Category
 import faker
 import random
 
@@ -45,7 +45,7 @@ def seed_products():
             name=f"{fake.company()}",
             quantity=fake.random_int(min=1, max=10),
             price=fake.random_int(min=1, max=100),
-            category=categories[random.randint(0, len(categories) - 1)],
+            category=random.choice(categories),
         )
         product.save()
 

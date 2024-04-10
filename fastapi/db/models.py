@@ -1,6 +1,7 @@
 from peewee import *
-from db import db
 import datetime
+
+db = SqliteDatabase(None)
 
 
 class User(Model):
@@ -44,6 +45,3 @@ class Security(Model):
 
     class Meta:
         database = db
-
-
-db.create_tables([User, Product, Category, Security])

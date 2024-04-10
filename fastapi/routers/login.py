@@ -1,6 +1,6 @@
 from fastapi import Body, APIRouter, status, Response, Query, Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
-from models import User, Security
+from db.models import User, Security
 from pydantic import BaseModel
 import http
 import datetime

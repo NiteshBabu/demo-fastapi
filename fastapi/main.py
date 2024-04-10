@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 import routers.users as users
-from routers import login
+from routers import login, products
 from dependencies import get_token_header
 
 app = FastAPI(
@@ -21,3 +21,4 @@ app.add_middleware(
 
 app.include_router(users.router)
 app.include_router(login.router)
+app.include_router(products.router)
