@@ -1,5 +1,5 @@
 # from peewee import SqliteDatabase
-from db.models import db, User, Product, Category, Security
+from fastapi.db.models import db, User, Product, Category, Security
 
 
 # db = SqliteDatabase("db.sqlite")
@@ -7,5 +7,5 @@ from db.models import db, User, Product, Category, Security
 
 
 def init():
-    db.init("db.sqlite")
+    db.init("./db.sqlite")
     db.create_tables([User, Product, Category, Security])
